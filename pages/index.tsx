@@ -1,5 +1,6 @@
 /* eslint-disable @next/next/no-img-element */
 import type { NextPage } from "next";
+import Link from "next/link";
 import Head from "next/head";
 import { useEffect, useState } from "react";
 import styles from "../styles/Home.module.css";
@@ -61,6 +62,11 @@ const Home: NextPage = () => {
                 <div key={index}>{restaurant.name} </div>
               </div>
               <div className={styles.info}></div>
+              <button >
+                <Link href={`/restaurants/${restaurant.name}`} >
+                  <a style={{textDecoration: 'none'}}>View</a>
+                </Link>
+              </button>
             </div>
           );
         })}
