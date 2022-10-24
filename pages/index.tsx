@@ -14,12 +14,14 @@ type Restaurant = {
 const Home: NextPage = () => {
   const [data, setData] = useState<Restaurant[]>([]);
   const [query, setQuery] = useState("");
+  const [isLoading, setIsLoading] = useState(false);
 
   useEffect(() => {
+    setIsLoading(true);
     const getRestaurants = async () => {
       const response = await fetch(`/api/restaurants/${query}`);
       const restData = (await response.json()) as Array<Restaurant>;
-      
+
       const promises = restData.map(async (rest, index) => {
         const resp = await fetch(`/api/urls/${rest._id}`);
         const url = await resp.json();
@@ -27,6 +29,7 @@ const Home: NextPage = () => {
       });
 
       await Promise.all(promises);
+      setIsLoading(false);
       setData(restData);
     };
     getRestaurants();
@@ -50,6 +53,14 @@ const Home: NextPage = () => {
       <div className={styles.ln}></div>
 
       <div className={styles.restContainer}>
+        {isLoading ?         
+        <div className={styles.loader}>
+          <div></div>
+          <div></div>
+          <div></div>
+        </div> :
+        null}
+
         {data.map((restaurant, index) => {
           return (
             <div className={styles.restaurant} key={index}>
@@ -62,12 +73,11 @@ const Home: NextPage = () => {
                 <div key={index}>{restaurant.name} </div>
               </div>
               <div className={styles.info}></div>
-              <button >
-                <Link href={`/restaurants/${restaurant._id}`} >
-                  <a style={{textDecoration: 'none'}}>View</a>
+              <button>
+                <Link href={`/restaurants/${restaurant._id}`}>
+                  <a style={{ textDecoration: "none" }}>View</a>
                 </Link>
               </button>
-            
             </div>
           );
         })}

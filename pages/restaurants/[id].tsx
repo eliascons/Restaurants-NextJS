@@ -35,7 +35,6 @@ const Restaurant: NextPage = ({restaurant, url}:any) => {
     <div>
       
       <img src={url}/>
-     
       <h1>{restaurant.name}</h1>
       
     </div>
