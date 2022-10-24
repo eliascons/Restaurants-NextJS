@@ -19,7 +19,7 @@ const Home: NextPage = () => {
     const getRestaurants = async () => {
       const response = await fetch(`/api/restaurants/${query}`);
       const restData = (await response.json()) as Array<Restaurant>;
-
+      
       const promises = restData.map(async (rest, index) => {
         const resp = await fetch(`/api/urls/${rest._id}`);
         const url = await resp.json();
@@ -63,10 +63,11 @@ const Home: NextPage = () => {
               </div>
               <div className={styles.info}></div>
               <button >
-                <Link href={`/restaurants/${restaurant.name}`} >
+                <Link href={`/restaurants/${restaurant._id}`} >
                   <a style={{textDecoration: 'none'}}>View</a>
                 </Link>
               </button>
+            
             </div>
           );
         })}

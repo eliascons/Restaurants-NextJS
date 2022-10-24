@@ -7,7 +7,7 @@ export default async function handler(
   req: NextApiRequest,
   res: NextApiResponse
 ) {
-  const { id } = req.query;
+  const { rest } = req.query;
 
   if (req.method === "GET") {
     // const results = await Restaurant.findById(id).exec();
@@ -17,7 +17,7 @@ export default async function handler(
           $search: {
             index: "searchAutofill",
             autocomplete: {
-              query: id,
+              query: rest,
               path: "name",
               fuzzy: {
                 maxEdits: 1,
