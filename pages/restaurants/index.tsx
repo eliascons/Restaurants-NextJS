@@ -14,7 +14,7 @@ export const getServerSideProps: GetServerSideProps = async () => {
   connectMongo();
 
   const data = await Restaurant.find();
-
+  
   return {
     props: {
       data: JSON.parse(JSON.stringify(data)),
