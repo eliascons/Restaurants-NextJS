@@ -15,6 +15,7 @@ const Home: NextPage = () => {
   const [data, setData] = useState<Restaurant[]>([]);
   const [query, setQuery] = useState("");
   const [isLoading, setIsLoading] = useState(false);
+  const [pageLoad, setPageLoad] = useState(false);
 
   useEffect(() => {
     setIsLoading(true);
@@ -53,13 +54,13 @@ const Home: NextPage = () => {
       <div className={styles.ln}></div>
 
       <div className={styles.restContainer}>
-        {isLoading ?         
-        <div className={styles.loader}>
-          <div></div>
-          <div></div>
-          <div></div>
-        </div> :
-        null}
+        {isLoading ? (
+          <div className={styles.loader}>
+            <div></div>
+            <div></div>
+            <div></div>
+          </div>
+        ) : null}
 
         {data.map((restaurant, index) => {
           return (
@@ -73,7 +74,7 @@ const Home: NextPage = () => {
                 <div key={index}>{restaurant.name} </div>
               </div>
               <div className={styles.info}></div>
-              <button>
+              <button onClick={() => setPageLoad(true)}>
                 <Link href={`/restaurants/${restaurant._id}`}>
                   <a style={{ textDecoration: "none" }}>View</a>
                 </Link>
@@ -81,6 +82,15 @@ const Home: NextPage = () => {
             </div>
           );
         })}
+      </div>
+      <div>
+        {pageLoad ? (
+          <div className={styles.loader}>
+            <div></div>
+            <div></div>
+            <div></div>
+          </div>
+        ) : null}
       </div>
     </div>
   );
