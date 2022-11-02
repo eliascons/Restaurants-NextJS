@@ -60,7 +60,6 @@ const Restaurant: NextPage = ({ restaurant, url, dishes }: any) => {
   const getDishImg = async (item: Number) => {
     const resp = await fetch(`/api/urls/${item}`);
     const url = await resp.json();
-    console.log(resp.status);
     return url;
   };
 
