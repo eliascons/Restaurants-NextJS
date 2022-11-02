@@ -83,14 +83,8 @@ const Home: NextPage = () => {
           );
         })}
       </div>
-      <div>
-        {pageLoad ? (
-          <div className={styles.loader}>
-            <div></div>
-            <div></div>
-            <div></div>
-          </div>
-        ) : null}
+      <div className={styles.bottomRight}>
+        <div>{pageLoad ? <div className={styles.pageLoad}></div> : null}</div>
       </div>
     </div>
   );
