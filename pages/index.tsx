@@ -73,12 +73,14 @@ const Home: NextPage = () => {
               <div className={styles.contents}>
                 <div key={index}>{restaurant.name} </div>
               </div>
-              <div className={styles.info}></div>
-              <button onClick={() => setPageLoad(true)}>
-                <Link href={`/restaurants/${restaurant._id}`}>
-                  <a style={{ textDecoration: "none" }}>View</a>
+              <div className={styles.info}>
+                <Link
+                  href={`/restaurants/${restaurant._id}`}
+                  onClick={() => setIsLoading(true)}
+                >
+                  <a className={styles.buttonStyle}>View</a>
                 </Link>
-              </button>
+              </div>
             </div>
           );
         })}
