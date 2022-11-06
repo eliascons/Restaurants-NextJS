@@ -76,7 +76,7 @@ const Home: NextPage = () => {
               <div className={styles.info}>
                 <Link
                   href={`/restaurants/${restaurant._id}`}
-                  onClick={() => setIsLoading(true)}
+                  onClick={() => setPageLoad(true)}
                 >
                   <a className={styles.buttonStyle}>View</a>
                 </Link>
