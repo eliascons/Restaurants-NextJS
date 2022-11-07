@@ -38,20 +38,22 @@ const Home: NextPage = () => {
 
   return (
     <div className={styles.container}>
-      <Head>
-        <title>Restaurant-App</title>
-      </Head>
-      <h1 className={styles.header}>Restaurants</h1>
-      <div className={styles.inpt}>
-        <input
-          placeholder="Search"
-          className={styles.searchBox}
-          value={query}
-          onChange={(e) => setQuery(e.target.value)}
-        ></input>
+      <div className={styles.head}>
+        <Head>
+          <title>Restaurant-App</title>
+        </Head>
+        <h1 className={styles.header}>Restaurants</h1>
+        <div className={styles.inpt}>
+          <input
+            placeholder="Search"
+            className={styles.searchBox}
+            value={query}
+            onChange={(e) => setQuery(e.target.value)}
+          ></input>
+        </div>
       </div>
 
-      <div className={styles.ln}></div>
+   
 
       <div className={styles.restContainer}>
         {data.map((restaurant, index) => {

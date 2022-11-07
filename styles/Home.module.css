@@ -1,5 +1,11 @@
 @import url('https://fonts.googleapis.com/css2?family=Mali:wght@200&display=swap');
 
+
+.head {
+  background: linear-gradient(#a6aceb, #d7d8e7);
+  margin-bottom: 50px;
+}
+
 .header {
   display: flex;
   justify-content: center;
@@ -11,10 +17,12 @@
   padding: 10px;
 }
 
-.searchBox{
+
+
+.searchBox {
   height: 40px;
   width: 500px;
-  background: rgba(178, 191, 226, 0.295);
+  background: rgba(253, 254, 255, 0.973);
   color: black;
   border-radius: 50px;
   text-align: center;
@@ -23,7 +31,7 @@
 
 }
 
-.searchBox:hover{
+.searchBox:hover {
   box-shadow: 1px 1px rgb(60, 77, 77);
 }
 
@@ -81,11 +89,11 @@
 
 
 
-.info{
+.info {
   margin-top: 50%;
 }
 
-.buttonStyle{
+.buttonStyle {
   text-decoration: none;
   padding: 10px 30px;
   font-size: 1.25rem;
@@ -97,7 +105,8 @@
 
 }
 
-.buttonStyle::after, .buttonStyle::before{
+.buttonStyle::after,
+.buttonStyle::before {
   content: "";
   position: absolute;
   opacity: 0.3;
@@ -111,16 +120,16 @@
   transition: transform 0.5 ease;
 }
 
-.buttonStyle:hover{
+.buttonStyle:hover {
   transform: translate(-12px, -12px);
- 
+
 }
 
-.buttonStyle:hover::after{
+.buttonStyle:hover::after {
   transform: translate(6px, 6px);
 }
 
-.buttonStyle:hover::before{
+.buttonStyle:hover::before {
   transform: translate(-5px, -5px);
 }
 
