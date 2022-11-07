@@ -54,14 +54,6 @@ const Home: NextPage = () => {
       <div className={styles.ln}></div>
 
       <div className={styles.restContainer}>
-        {isLoading ? (
-          <div className={styles.loader}>
-            <div></div>
-            <div></div>
-            <div></div>
-          </div>
-        ) : null}
-
         {data.map((restaurant, index) => {
           return (
             <div className={styles.restaurant} key={index}>
@@ -81,6 +73,14 @@ const Home: NextPage = () => {
             </div>
           );
         })}
+
+        {isLoading ? (
+          <div className={styles.loader}>
+            <div></div>
+            <div></div>
+            <div></div>
+          </div>
+        ) : null}
       </div>
       <div className={styles.bottomRight}>
         <div>{pageLoad ? <div className={styles.pageLoad}></div> : null}</div>
